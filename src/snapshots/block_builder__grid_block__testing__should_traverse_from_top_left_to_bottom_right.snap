@@ -1,0 +1,10 @@
+---
+source: src/grid_block.rs
+expression: actual
+---
+- "  *   * *"
+- "  * x * *"
+- "  *   ***"
+- "  * x   *"
+- "  *     *"
+

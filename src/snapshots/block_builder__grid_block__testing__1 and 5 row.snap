@@ -1,0 +1,17 @@
+---
+source: src/grid_block.rs
+expression: "&[row, third_row]"
+---
+- - "*"
+  - "*"
+  - " "
+  - " "
+  - ^
+  - ^
+- - x
+  - x
+  - " "
+  - " "
+  - " "
+  - " "
+

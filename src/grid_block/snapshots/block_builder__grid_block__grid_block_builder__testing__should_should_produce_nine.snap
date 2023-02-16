@@ -1,0 +1,9 @@
+---
+source: src/grid_block/grid_block_builder.rs
+expression: block
+---
+[[*, *, *],
+ [*,  , *],
+ [*, *, *],
+ [ ,  , *],
+ [*, *, *]]
