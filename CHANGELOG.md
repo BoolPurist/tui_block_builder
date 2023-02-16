@@ -17,4 +17,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   Those builder can be scaled in block size
 
 [unreleased]: https://github.com/BoolPurist/daily_ruster_man/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/BoolPurist/https://github.com/BoolPurist/tui_block_builder/tag/v0.1.0
+[0.1.0]:https://github.com/BoolPurist/tui_block_builder/releases/tag/v0.1.0
