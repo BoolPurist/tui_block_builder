@@ -1,3 +1,7 @@
+mod line_block_builder;
+
+pub use line_block_builder::LineBlockBuilder;
+
 use crate::grid_block::BlockGridBuilder;
 use crate::{ascii_art_lib, grid_block::GridBlock};
 use tui::text::Spans;

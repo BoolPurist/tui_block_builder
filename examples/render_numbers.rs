@@ -78,39 +78,20 @@ fn ui<B: Backend>(f: &mut Frame<B>) {
 }
 
 fn create_numbers_render() -> Vec<Spans<'static>> {
-    use block_builder::tui_block;
+    use block_builder::tui_block::LineBlockBuilder;
     const BLOCK_SIZE: usize = 2;
     const NONE_COLOR: Color = Color::Black;
     const TAKEN_COLOR: Color = Color::White;
 
-    let one = create_tui_block(tui_block::create_tui_block_1);
-
-    let zero = create_tui_block(tui_block::create_tui_block_0);
-    let two = create_tui_block(tui_block::create_tui_block_2);
-    let seven = create_tui_block(tui_block::create_tui_block_7);
-    let double_point = create_tui_block(tui_block::create_tui_block_double_point);
-
-    let space = tui_block::create_tui_block_space(NONE_COLOR)
-        .block_size(BLOCK_SIZE)
-        .build();
-
-    return tui_block::build_tui_line_block(&[
-        one,
-        space.clone(),
-        zero.clone(),
-        double_point,
-        two,
-        space.clone(),
-        zero,
-        space,
-        seven,
-    ]);
-
-    fn create_tui_block(
-        on_create: impl Fn(Color, Color) -> BlockGridBuilder<Span<'static>>,
-    ) -> GridBlock<Span<'static>> {
-        on_create(NONE_COLOR, TAKEN_COLOR)
-            .block_size(BLOCK_SIZE)
-            .build()
-    }
+    LineBlockBuilder::new(BLOCK_SIZE, TAKEN_COLOR, NONE_COLOR)
+        .one()
+        .space()
+        .zero()
+        .seperator()
+        .two()
+        .space()
+        .zero()
+        .space()
+        .seven()
+        .build_line()
 }
