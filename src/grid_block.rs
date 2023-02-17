@@ -10,7 +10,7 @@ pub use grid_block_builder::BlockGridBuilder;
 /// elements.
 /// Every grid has a number of blocks in x and y direction.
 /// The whole API is exposed for immutable access only.
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct GridBlock<T> {
     grid: Array2<T>,
     width: usize,
@@ -43,12 +43,16 @@ impl<T> GridBlock<T> {
     }
 
     /// Get all elements along a y axis
+    ///
+    /// **Panics** if y is equal or larger than the height of the grid.
     pub fn get_row_at(&self, y: usize) -> Option<&[T]> {
         self.grid.row(y).to_slice()
     }
 
     /// Yields all elements of blocks given in param `grid` along on given y axis `y`
     /// This operation can be used to traverse by rows as if the given block are one.
+    ///
+    /// **Panics** if y is equal or larger than the height of the grid.
     pub fn iter_along_x_axis(grid: &[GridBlock<T>], y: usize) -> impl Iterator<Item = &T> {
         grid.iter()
             .filter_map(move |next_grid| next_grid.get_row_at(y))
@@ -63,6 +67,8 @@ impl<T> GridBlock<T> {
     }
     /// Yields elements of given `grid` for traversing from top left to bottom right corner by
     /// rows. It stops at row `max_len`.
+    ///
+    /// **Panics** if elements in slice `grid` do not have the same height
     pub fn iter_top_left_bottom_right(
         grid: &[GridBlock<T>],
         max_len: usize,
@@ -106,10 +112,11 @@ mod testing {
     fn should_traverse_from_top_left_to_bottom_right() {
         let one = ascii_art_lib::build_1(" ", "*").build();
         let double_point = ascii_art_lib::build_double_point(" ", "x").build();
+        let space = ascii_art_lib::build_space("|").build();
         let four = ascii_art_lib::build_4(" ", "*").build();
 
         let actual: Vec<String> =
-            GridBlock::iter_top_left_bottom_right(&vec![one, double_point, four], 5)
+            GridBlock::iter_top_left_bottom_right(&vec![one, space, double_point, four], 5)
                 .map(|line| {
                     line.into_iter()
                         .map(|symbol| symbol.to_string())

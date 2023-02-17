@@ -215,7 +215,7 @@ where
     T: Clone,
 {
     let mut builder = BlockGridBuilder::with_default(default_v);
-    builder.block_size(1).blocks_in_x(1).blocks_in_y(3);
+    builder.block_size(1).blocks_in_x(1).blocks_in_y(5);
     builder
 }
 
