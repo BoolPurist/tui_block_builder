@@ -4,3 +4,8 @@
 pub mod ascii_art_lib;
 pub mod grid_block;
 pub mod tui_block;
+
+pub use tui::{
+    style::Color,
+    text::{Span, Spans},
+};
