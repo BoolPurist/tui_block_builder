@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased] 
 
+### Added
+
+- specific API for tui rs to build blocks for rendering big numbers
+- example of showcasing these the rendering of numbers
+
 ## [0.1.0] - 2023.02.16
 
 ### Added
