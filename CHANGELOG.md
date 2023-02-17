@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- builder for building a line of blocks, numbers, whitespace and : 
 - specific API for tui rs to build blocks for rendering big numbers
 - example of showcasing these the rendering of numbers
 
