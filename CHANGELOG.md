@@ -9,11 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- example to show increasing block number as counter
-- API to generate line of number blocks by a given unsigned integer
-- builder for building a line of blocks, numbers, white space and :
-- specific API for tui rs to build blocks for rendering big numbers
-- example of showcasing these the rendering of numbers
+- Reexports of used tui-rs modules.
+- example to show increasing block number as counter.
+- API to generate line of number blocks by a given unsigned integer.
+- builder for building a line of blocks, numbers, white space and : .
+- specific API for tui rs to build blocks for rendering big numbers.
+- example of showcasing these the rendering of numbers.
 
 ## [0.1.0] - 2023.02.16
 
